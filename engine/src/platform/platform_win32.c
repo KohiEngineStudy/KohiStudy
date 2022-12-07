@@ -18,7 +18,7 @@ static LARGE_INTEGER start_time;
 
 LRESULT CALLBACK win32_process_message(HWND hwnd, u32 msg, WPARAM w_param, LPARAM l_param);
 
-b8 platform_startup (
+KAPI b8 platform_startup (
     platform_state* plat_state,
     const char * application_name,
     i32 x,
@@ -83,7 +83,7 @@ b8 platform_startup (
     window_height += border_rect.bottom - border_rect.top;
 
     HWND handle = CreateWindowExA(
-        window_ex_style, "Chan_window_class", application_name,
+        window_ex_style, "kohi_window_class", application_name,
         window_style, window_x, window_y, window_width, window_height,
         0,0, state->h_instance, 0);
 
@@ -118,7 +118,7 @@ void platform_shutdown(platform_state *plat_state){
     }
 }
 
-b8 platform_pump_messages(platform_state* plat_state){
+KAPI b8 platform_pump_messages(platform_state* plat_state){
     MSG message;
     while (PeekMessageA(&message, NULL, 0, 0, PM_REMOVE)){
         TranslateMessage(&message);
