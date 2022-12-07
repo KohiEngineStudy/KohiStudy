@@ -1,5 +1,6 @@
 #include "logger.h"
 #include "assert.h"
+#include "platform/platform.h"
 
 #include <stdio.h>
 #include <string.h>
